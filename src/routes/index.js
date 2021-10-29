@@ -20,6 +20,26 @@ router.post('/add', async (req, res) => {
 
 });
 
+router.get('/done/:id', async (req, res) => {
+    const { id } = req.params;
+    const task = await Task.findById(id);
+    task.status = !task.status;
+    await task.save();
+    res.redirect('/');
+});
+
+router.get('/edit/:id', async (req, res) => {
+    const { id } = req.params;
+    const task = await Task.findById(id);
+    res.render('edit', {task});
+})
+
+router.post('/edit/:id', async (req, res) => {
+    const { id } = req.params;
+    const task = await Task.update({_id : id}, req.body);
+    res.redirect('/');
+});
+
 router.get('/delete/:id', async (req, res) => {
     const { id } = req.params;
     await Task.remove({_id : id});

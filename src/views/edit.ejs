@@ -1,0 +1,34 @@
+<% layout('layout') -%>
+<div class="container">
+    <div class="row">
+        <!--FORM-->
+ <div class="col-md-5">
+    <div class="card">
+      <div class="card-body">
+        <form action="/edit/<%= task._id %>" method="POST">
+          <div class="form-group">
+            <input
+              type="text"
+              placeholder="Insert a Title"
+              class="form-control"
+
+              value="<%= task.title %>"
+              name="title"
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <textarea
+              cols="80"
+              rows="3"
+              class="form-control"
+              placeholder="Insert a Description"
+              name="description"
+            ><%= task.description %></textarea>
+          </div>
+          <br />
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+      </div>
+    </div>
+</div>

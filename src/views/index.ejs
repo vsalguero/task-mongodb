@@ -49,9 +49,9 @@
             <td><%= i + 1 %></td>
             <td><%= tasks[i].title %></td>
             <td><%= tasks[i].description %></td>
-            <td><a href="" class="btn btn-dark">Done</a>
+            <td><a href="/done/<%= tasks[i]._id %>" class="btn <%= tasks[i].status ? 'btn-success' : 'btn-dark' %>">Done</a>
                 <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">Delete</a>
-                <a href="" class="btn btn-info">Edit</a></td>
+                <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">Edit</a></td>
           </tr>
           <% } %>
         </tbody>
