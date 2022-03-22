@@ -10,5 +10,5 @@ const TaskSchema = new Schema({
         default : false
     }
 })
-
+//se crea una base de datos llamada task
 module.exports = mongoose.model('task', TaskSchema);
